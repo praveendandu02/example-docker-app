@@ -12,5 +12,15 @@ pipeline {
             }           
            
         }
+        stage("Docker build") {
+            steps {
+                script {
+                    app = docker.build("praveendandu02/new-train-schedule")
+                    app.inside {
+                        sh 'echo $(curl localhost:8080)'
+                    }
+                }
+            }
+        }
     }
 }
