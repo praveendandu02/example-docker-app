@@ -1,5 +1,18 @@
-#!/usr/bin/env groovy
-@Library("Global@master") _
-containerBuildPipeline {
- 
+pipeline {
+    agent any
+    stages {
+        stage('Initialize') {
+            steps{
+                script{
+                    checkout scm
+                    sh "git checkout main"
+
+                }              
+
+            }           
+           
+        }
+      
+        }
+    }
 }
